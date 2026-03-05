@@ -50,11 +50,9 @@ Additionally, I plan to deepen my knowledge of performance optimization techniqu
 
 ### Useful resources
 
--   [Web3Forms](https://app.web3forms.com/)
 -   [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 -   [Bootstrap Icons](https://icons.getbootstrap.com/)
--   [pngegg - PNG Icons](https://www.pngegg.com/)
--   [svgrepo - SVG Vector and Icons](https://www.svgrepo.com/)
+-   [flagcdn Icons](https://flagcdn.com/)
 -   [Google Fonts](https://fonts.google.com/)
 
 ## Author

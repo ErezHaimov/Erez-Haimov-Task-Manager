@@ -7,7 +7,7 @@
 	--card-bg: #ffffff;
 	--text-color: #333;
 	--border-color: #ddd;
-	--container-width: clamp(320px, 90vw, 800px);
+	--container-width: clamp(320px, 90vw, 1000px);
 	--calendar-icon-filter: invert(0); /* for date input icon = black */
 }
 
@@ -76,6 +76,7 @@ header h1 {
 
 /* Main container styling */
 main {
+	width: 100%;
 	max-width: var(--container-width);
 	align-self: center;
 	margin-left: 10px;
@@ -97,6 +98,7 @@ main {
 }
 
 .input-section input {
+	min-width: 100px;
 	flex: 1;
 	padding: 12px;
 	border: 1px solid var(--border-color);
@@ -180,9 +182,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	margin: 10px;
 }
 
+/* Layout for the task item using CSS Grid */
 .task-item {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	/* Columns: Text (flexible), Date (fixed width), Buttons (fixed width) */
+	grid-template-columns: 1fr 120px 140px;
 	align-items: center;
 	padding: 15px;
 	border-bottom: 1px solid var(--border-color);
@@ -201,10 +205,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	opacity: 0.5;
 }
 
+/* Specific styling for the columns */
+.task-item .task-text {
+	text-align: left;
+	word-break: break-word;
+	font-weight: bold;
+}
+
+.task-item .task-date {
+	text-align: center;
+	color: var(--text-color);
+	font-size: 0.9rem;
+	white-space: nowrap; /* Keeps date on one line */
+}
+
 /* Container for task action buttons */
 .task-buttons {
 	display: flex;
-	flex-wrap: wrap;
 	gap: 8px;
 	justify-content: flex-end;
 }
@@ -287,39 +304,34 @@ footer {
 
 /* ===== Media Queries for Mobile Responsiveness ===== */
 
-/* Applied to screens smaller than 480px */
-@media (max-width: 480px) {
-	/* Reduce the main header size to fit better on smaller screens */
+@media (max-width: 600px) {
+	/* 1. Simplify Header */
 	header h1 {
 		font-size: 1.8rem;
 	}
 
-	/* Stack the task description and the action buttons vertically */
+	/* 2. Stack Task Items vertically using Grid */
 	.task-item {
-		flex-direction: column;
-		align-items: flex-start;
+		grid-template-columns: 1fr;
 		gap: 12px;
 		padding: 12px;
+		align-items: flex-start;
 	}
 
-	/* Ensure action buttons (Done/Delete) align to the start of the row on smaller screens*/
-	.task-buttons {
-		width: 100%;
+	/* 3. Align date and buttons to the left */
+	.task-item .task-date,
+	.task-item .task-buttons {
 		justify-content: flex-start;
+		text-align: left;
+		width: 90%;
 	}
 
-	.filter-btn,
-	.sort-btn {
+	/* 4. Make Inputs and Buttons full width */
+	.primary-btn,
+	.filter-btn {
+		width: 100%;
+		min-width: max-content;
 		padding: 10px 12px;
 		font-size: 0.85rem;
-	}
-
-	#taskInput {
-		min-width: 100px;
-	}
-
-	.input-section input,
-	.primary-btn {
-		width: 100%;
 	}
 }

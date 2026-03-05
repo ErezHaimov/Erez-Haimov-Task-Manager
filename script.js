@@ -2,6 +2,7 @@
 let tasks = [];
 let currentFilter = "all";
 let currentLang = "en";
+let sortAscending = true;
 
 // Translations Data
 const translations = {
@@ -128,9 +129,13 @@ function filterTasks(tasksArray, filter) {
 	}
 }
 
-// sortTasks(): Sorts tasks by due date
-function sortTasks(tasksArray) {
-	return tasksArray.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+// sortTasks(): Sorts tasks by due date (Toggle between Asc and Desc)
+function sortTasks(tasksArray, ascending) {
+	return tasksArray.sort((a, b) => {
+		const dateA = new Date(a.dueDate);
+		const dateB = new Date(b.dueDate);
+		return ascending ? dateA - dateB : dateB - dateA;
+	});
 }
 
 // renderTasks(): Updates the UI list and attaches listeners dynamically
@@ -144,7 +149,8 @@ function renderTasks() {
 		li.className = `task-item ${task.completed ? "completed" : ""}`;
 
 		li.innerHTML = `
-			<span><strong>${task.text}</strong> (${task.dueDate})</span>
+			<span class="task-text">${task.text}</span>
+			<span class="task-date">${task.dueDate}</span>
 			<div class="task-buttons">
 				<button class="done-btn" data-id="${task.id}">
 					${task.completed ? t.undo : t.done}
@@ -250,7 +256,9 @@ themeToggle.addEventListener("click", () => {
 
 // Handle Sorting
 sortDateBtn.addEventListener("click", () => {
-	tasks = sortTasks(tasks);
+	sortAscending = !sortAscending;
+
+	tasks = sortTasks(tasks, sortAscending);
 	saveAndRender();
 });
 

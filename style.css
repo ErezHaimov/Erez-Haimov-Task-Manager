@@ -169,6 +169,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	cursor: pointer;
 }
 
+.sort-btn {
+	display: inline-flex;
+	flex-direction: row;
+	gap: 5px;
+}
+
 .filter-btn.active {
 	background: var(--primary-color);
 	color: white;
@@ -329,9 +335,13 @@ footer {
 	/* 4. Make Inputs and Buttons full width */
 	.primary-btn,
 	.filter-btn {
-		width: 100%;
+		width: 75%;
 		min-width: max-content;
 		padding: 10px 12px;
 		font-size: 0.85rem;
+	}
+
+	.sort-btn {
+		flex-direction: column;
 	}
 }

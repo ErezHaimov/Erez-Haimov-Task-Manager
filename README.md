@@ -48,7 +48,7 @@ It highlights my ability to build a fully functional application that bridges th
 ### Ongoing Development
 
 I am currently focusing on deepening my understanding of **Asynchronous JavaScript** and error handling during API interactions.
-Additionally, I plan to explore **CSS Frameworks like Bootstrap** and advanced **State Management patterns** to build more scalable and complex full-stack applications in the future.
+Additionally, I plan to explore and build more scalable and complex full-stack applications in the future.
 
 ### Useful resources
 

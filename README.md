@@ -1,30 +1,31 @@
-# To-Do List - Erez Haimov
+# Erez Haimov - Task Manager Project
 
-Erez Haimov To-Do List
+This Task Manager project demonstrates a **Full-Stack approach** to application development.
+Beyond front-end design, it involves **API integration** to fetch and map external data, complex **state management** for CRUD operations, and persistent data storage using **LocalStorage**.
+It highlights my ability to build a fully functional application that bridges the gap between raw data and a responsive, user-centric interface.
 
 ## Useful navigation
 
--   [Overview](#overview)
-    -   [The challenge](#the-challenge)
-    -   [Screenshot](#screenshot)
-    -   [Links](#links)
--   [My process](#my-process)
-    -   [Technologies](#technologies)
-    -   [Ongoing Development](#ongoing-development)
-    -   [Useful resources](#useful-resources)
--   [Author](#author)
+- [Overview](#overview)
+	- [The challenge](#the-challenge)
+	- [Screenshot](#screenshot)
+	- [Links](#links)
+- [My process](#my-process)
+	- [Technologies](#technologies)
+	- [Ongoing Development](#ongoing-development)
+	- [Useful resources](#useful-resources)
+- [Author](#author)
 
 ## Overview
 
 ### The challenge
 
--   **Professional Presentation:** Build a polished online presence that highlights my strongest work and core skill set.
--   **Project Showcase:** Feature key projects with clear descriptions, visuals, technologies used, and a discussion of challenges faced and solutions implemented.
--   **Structure:** Apply a clean, logical structure using semantic HTML and essential pages.
--   **Design:** Deliver an engaging user experience through thoughtful visual design, a cohesive color palette, appropriate typography, and subtle CSS animations.
--   **Responsiveness and Compatibility:** Ensure full responsiveness across mobile devices and tablets using flexible layouts and units.
--   **Performance Optimization:** Improve load times through techniques such as CSS minification and image optimization.
--   **Accessibility:** Maintain accessibility standards by ensuring sufficient color contrast, adding alt text to images, and supporting full keyboard navigation.
+- **Full-Stack Logic:** Implement CRUD (Create, Read, Update, Delete) functionality with persistent storage to ensure data survives page refreshes.
+- **API Integration:** Fetch initial data from external REST APIs and map it into the application's internal data structure.
+- **Dynamic UI:** Develop a theme switcher (Dark/Light mode) and a multi-language toggle (English/Hebrew) that persist across sessions.
+- **Data Organization:** Implement sorting algorithms (by Date) and filtering logic (All/Active/Completed) to manage task lists efficiently.
+- **Responsive Grid Design:** Utilize CSS Grid for a structured, column-based layout that remains fluid across mobile and desktop devices.
+- **Accessibility:** Ensure the application is keyboard-navigable, uses semantic HTML, and provides sufficient color contrast in both themes.
 
 ### Screenshot
 
@@ -32,30 +33,31 @@ Erez Haimov To-Do List
 
 ### Links
 
--   Live Site URL: [https://erezhaimov.github.io/Erez-Haimov-Portfolio/](https://erezhaimov.github.io/Erez-Haimov-Portfolio/)
+- Live Site URL: [https://erezhaimov.github.io/task-manager/](https://erezhaimov.github.io/task-manager/)
 
 ## My process
 
 ### Technologies
 
--   Semantic HTML5 for clear structure and accessibility.
--   CSS Variables to maintain consistent theming and easier customization.
--   Flexbox Layout for flexible, responsive component alignment.
--   Media Queries to ensure full responsiveness across devices and screen sizes.
+- **Semantic HTML5** – For clear document structure and improved SEO/Accessibility.
+- **Modern CSS (Grid & Flexbox)** – Used for the multi-column task layout and responsive alignment.
+- **CSS Variables & Clamp()** – To maintain a dynamic, scalable design system and seamless theme switching.
+- **Vanilla JavaScript (ES6+)** – For core application logic, asynchronous API calls (Fetch), and DOM manipulation.
+- **LocalStorage API** – For client-side data persistence and preference saving (Theme/Language).
 
 ### Ongoing Development
 
-I continue to strengthen my responsive web design skills, with a focus on mastering CSS Flexbox and Bootstrap to build more complex, scalable, and maintainable layouts.
-Additionally, I plan to deepen my knowledge of performance optimization techniques, including CSS minification, lazy loading, and efficient asset management, in future projects.
+I am currently focusing on deepening my understanding of **Asynchronous JavaScript** and error handling during API interactions.
+Additionally, I plan to explore **CSS Frameworks like Bootstrap** and advanced **State Management patterns** to build more scalable and complex full-stack applications in the future.
 
 ### Useful resources
 
--   [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
--   [Bootstrap Icons](https://icons.getbootstrap.com/)
--   [flagcdn Icons](https://flagcdn.com/)
--   [Google Fonts](https://fonts.google.com/)
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - Used for fetching initial task data.
+- [Bootstrap Icons](https://icons.getbootstrap.com/) - For intuitive UI iconography.
+- [FlagCDN](https://flagcdn.com/) - For the language toggle icons.
+- [Google Fonts](https://fonts.google.com/) - Specifically the "Inter" font family for modern typography.
 
 ## Author
 
--   GitHub - [ErezHaimov](https://github.com/ErezHaimov)
--   LinkedIn - [erez-haimov](https://www.linkedin.com/in/erez-haimov/)
+- GitHub - [ErezHaimov](https://github.com/ErezHaimov)
+- LinkedIn - [erez-haimov](https://www.linkedin.com/in/erez-haimov/)

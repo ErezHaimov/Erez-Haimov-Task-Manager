@@ -33,7 +33,7 @@ It highlights my ability to build a fully functional application that bridges th
 
 ### Links
 
-- Live Site URL: [https://erezhaimov.github.io/task-manager/](https://erezhaimov.github.io/task-manager/)
+- Live Site URL: [https://erezhaimov.github.io/Erez-Haimov-Task-Manager/](https://erezhaimov.github.io/Erez-Haimov-Task-Manager/)
 
 ## My process
 

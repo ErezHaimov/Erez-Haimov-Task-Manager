@@ -112,11 +112,6 @@ input[type="date"] {
 	cursor: pointer;
 }
 
-input[type="date"]::before {
-	content: attr(placeholder);
-	color: var(--text-color);
-}
-
 /* Ensure the calendar icon itself always shows a pointer */
 input[type="date"]::-webkit-calendar-picker-indicator {
 	filter: var(--calendar-icon-filter) !important;

@@ -14,7 +14,7 @@ const translations = {
 		all: "All",
 		completed: "Completed",
 		active: "Active",
-		sort: "Sort by Due Date",
+		sort: "Sort by<br>Due Date",
 		undo: "Undo",
 		done: "Done",
 		delete: "Delete",
@@ -30,7 +30,7 @@ const translations = {
 		all: "הכל",
 		completed: "הושלמו",
 		active: "פעילות",
-		sort: "מיין לפי תאריך יעד",
+		sort: "מיין לפי<br>תאריך יעד",
 		undo: "בטל",
 		done: "בוצע",
 		delete: "מחק",
@@ -62,7 +62,7 @@ function updateUIStrings() {
 	document.getElementById("filter-all").textContent = t.all;
 	document.getElementById("filter-completed").textContent = t.completed;
 	document.getElementById("filter-active").textContent = t.active;
-	sortDateBtn.textContent = t.sort;
+	sortDateBtn.innerHTML = t.sort;
 	document.getElementById("ui-contact-title").textContent = t.contactTitle;
 	document.getElementById("ui-copyright").textContent = t.copyright;
 

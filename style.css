@@ -29,7 +29,7 @@ body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	margin: 0;
-	direction: ltr !important;
+	direction: ltr;
 	transition: background 0.3s ease;
 	display: flex;
 	flex-direction: column;
@@ -74,19 +74,112 @@ header h1 {
 	margin-bottom: 20px;
 }
 
+/* Container for floating alerts */
+#error-container {
+	position: fixed !important;
+	top: 25px !important;
+	left: 25px !important;
+	z-index: 2000 !important;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 380px;
+	pointer-events: none;
+	direction: ltr;
+}
+
+/* Alert Box Styling */
+#error-container .alert {
+	pointer-events: auto;
+	margin: 0;
+	padding: 15px 20px;
+	background-color: var(--card-bg);
+	color: var(--text-color);
+	border: none;
+	border-left: 6px solid #e74c3c;
+	border-radius: 12px;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+	display: flex;
+	align-items: center;
+	animation: slideInFromLeft 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Warning specific border color */
+#error-container .alert-warning {
+	border-left-color: #f1c40f;
+}
+
+/* Success specific border color */
+#error-container .alert-success {
+	border-left: 6px solid #2ecc71 !important;
+}
+
+/* Custom Close Button Styling - The one with the text */
+.custom-close-btn {
+	background: #f8f9fa;
+	border: 1px solid var(--border-color);
+	color: #666;
+	font-size: 0.75rem;
+	font-weight: 700;
+	padding: 5px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	margin-left: 15px; /* Spacing from the text to the right */
+	white-space: nowrap;
+}
+
+.custom-close-btn:hover {
+	background: #e9ecef;
+	color: #333;
+	transform: translateY(-1px);
+}
+
+/* Icons styling */
+#error-container .bi {
+	flex-shrink: 0;
+	margin-right: 15px; /* Spacing from icon to text */
+}
+
+/* Animation */
+@keyframes slideInFromLeft {
+	from {
+		transform: translateX(-110%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideOutToLeft {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(-110%);
+		opacity: 0;
+	}
+}
+
+/* Class to trigger the exit animation */
+.alert-exit {
+	animation: slideOutToLeft 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+		forwards !important;
+}
+
 /* Main container styling */
 main {
-	width: 100%;
+	width: calc(100% - 20px);
 	max-width: var(--container-width);
 	align-self: center;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 25px;
+	margin: 0 10px 25px 10px;
 	background: var(--card-bg);
 	padding: clamp(15px, 5vw, 30px);
 	border-radius: 20px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-	flex: none;
 }
 
 /* Input layout */
@@ -98,13 +191,34 @@ main {
 }
 
 .input-section input {
-	min-width: 100px;
 	flex: 1;
+	min-width: 100px;
 	padding: 12px;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
 	background: var(--card-bg);
 	color: var(--text-color);
+}
+
+/* Date input wrapper - groups label and input vertically */
+.date-wrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	width: 100%;
+	min-width: 130px;
+}
+
+.date-wrapper label {
+	font-size: 0.75rem;
+	color: var(--text-color);
+	opacity: 0.7;
+	padding-left: 2px;
+}
+
+.date-wrapper input {
+	flex: 1;
 }
 
 /* Standard logic for the date input */
@@ -114,8 +228,13 @@ input[type="date"] {
 
 /* Ensure the calendar icon itself always shows a pointer */
 input[type="date"]::-webkit-calendar-picker-indicator {
-	filter: var(--calendar-icon-filter) !important;
+	filter: var(--calendar-icon-filter);
 	cursor: pointer;
+}
+
+/* Align Add Task button to the bottom of the input row */
+#addTaskBtn {
+	align-self: flex-end;
 }
 
 .primary-btn {
@@ -125,6 +244,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	padding: 12px 15px;
 	border-radius: 8px;
 	cursor: pointer;
+	min-width: 130px;
 }
 
 /* Hover effects */
@@ -173,6 +293,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	display: inline-flex;
 	flex-direction: row;
 	gap: 5px;
+	white-space: normal;
+	min-width: 130px;
 }
 
 .filter-btn.active {
@@ -199,11 +321,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	gap: 10px;
 }
 
-/* Define a specific area for the task text */
-.task-item span {
-	flex: 1;
+/* Specific styling for the columns */
+.task-item .task-text {
+	text-align: left;
 	word-break: break-word; /* Ensures long words don't break the layout */
 	line-height: 1.4;
+	font-weight: bold;
 }
 
 .task-item.completed span {
@@ -211,18 +334,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	opacity: 0.5;
 }
 
-/* Specific styling for the columns */
-.task-item .task-text {
-	text-align: left;
-	word-break: break-word;
-	font-weight: bold;
-}
-
 .task-item .task-date {
 	text-align: center;
 	color: var(--text-color);
 	font-size: 0.9rem;
-	white-space: nowrap; /* Keeps date on one line */
+	white-space: nowrap;
 }
 
 /* Container for task action buttons */
@@ -252,6 +368,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .delete-btn {
 	background-color: var(--danger-color);
 }
+
 /* Floating "To Top" button logic */
 #toTopBtn {
 	position: fixed;
@@ -270,6 +387,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	transition: all 0.3s ease;
 	z-index: 1000;
 	text-decoration: none;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#toTopBtn.show {
+	opacity: 1;
+	pointer-events: auto;
 }
 
 /* Footer styling */
@@ -293,10 +417,12 @@ footer {
 	justify-content: center;
 	font-size: 1.5rem;
 }
+
 .footer-socials a {
 	color: var(--text-color);
 	transition: 0.3s;
 }
+
 .footer-socials a:hover {
 	color: var(--primary-color);
 	transform: translateY(-3px);
@@ -311,12 +437,33 @@ footer {
 /* ===== Media Queries for Mobile Responsiveness ===== */
 
 @media (max-width: 600px) {
-	/* 1. Simplify Header */
+	/* Error styling */
+	#error-container {
+		width: calc(100% - 40px);
+		left: 20px !important;
+	}
+
+	/* Simplify Header */
 	header h1 {
 		font-size: 1.8rem;
 	}
 
-	/* 2. Stack Task Items vertically using Grid */
+	/* Stack input fields vertically on mobile */
+	.input-section {
+		flex-direction: column;
+	}
+
+	/* Make input wrappers full width on mobile */
+	.date-wrapper {
+		width: 100%;
+	}
+
+	/* Make Add Task button full width on mobile */
+	#addTaskBtn {
+		align-self: stretch;
+	}
+
+	/* Stack Task Items vertically using Grid */
 	.task-item {
 		grid-template-columns: 1fr;
 		gap: 12px;
@@ -324,7 +471,7 @@ footer {
 		align-items: flex-start;
 	}
 
-	/* 3. Align date and buttons to the left */
+	/* Align date and buttons to the left */
 	.task-item .task-date,
 	.task-item .task-buttons {
 		justify-content: flex-start;
@@ -332,16 +479,18 @@ footer {
 		width: 90%;
 	}
 
-	/* 4. Make Inputs and Buttons full width */
-	.primary-btn,
-	.filter-btn {
-		width: 75%;
-		min-width: max-content;
-		padding: 10px 12px;
-		font-size: 0.85rem;
+	/* Allow filter buttons to scroll horizontally instead of stacking */
+	.filters {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		gap: 8px;
+		padding-bottom: 4px;
 	}
 
-	.sort-btn {
-		flex-direction: column;
+	/* Prevent filter buttons from shrinking */
+	.filter-btn {
+		flex-shrink: 0;
+		width: auto;
 	}
 }

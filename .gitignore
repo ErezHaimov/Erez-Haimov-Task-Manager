@@ -1,5 +1,10 @@
-.vscode/
+# OS files
 .DS_Store
 Thumbs.db
-node_modules/
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs
 *.log
